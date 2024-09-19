@@ -63,11 +63,11 @@
 
 Например, у нас это выглядело так:
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№1/Скрины/запуск%20nginx.png)
 
 Для проверки работы `nginx` можно ввести в поисковой строке любого браузера `localhost`, на что должны получить:
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№1/Скрины/начало%20работы.png)
 
  
 Это значит, что локальный веб-сервер создан и исправно работает. 
@@ -91,14 +91,14 @@ openssl req -new -key server.key -out server.csr
 ```
 И вводим всю запрашиваемую информацию, например, вот так:
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№1/Скрины/ssl.png)
 
 И, наконец, генерируем самоподписанный сертификат:
 ```bash
 openssl req -new -x509 -days 365 -key server.key -out server.crt
 ```
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№1/Скрины/ss2.png)
 
 Остается только преобразовать созданные сертификат и ключ в файл `.pfx` командой:
 ```bash
@@ -106,33 +106,33 @@ openssl pkcs12 -inkey server.key -in server.crt -export -out server.pfx
 ```
 И придумать пароль. Учтите, что на экране пароль отображаться **не будет**!
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№1/Скрины/ss3.png)
 
 Ура! Сертификат создан, проверить его наличие вы можете в директории, в которой работали во время выполнения данного пункта.
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№1/Скрины/cert.png)
 
 Теперь нужно импортировать сертификат в наш веб-сервер, созданный в предыдущем пункте. 
 
-Для этого нам понадобится Диспетчер служб `IIS`. Изначально он недоступен, но активировать его довольно просто. Для этого заходим в панель управления и открываем Включение или отключение компонентов `Windows`, где нам нужно найти папку `Служба управления IIS` и установить флажок рядом с ней:
+Для этого нам понадобится `Диспетчер служб IIS`. Изначально он недоступен, но активировать его довольно просто. Для этого заходим в панель управления и открываем `Включение или отключение компонентов Windows`, где нам нужно найти папку `Служба управления IIS` и установить флажок рядом с ней:
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№1/Скрины/cert2.png)
 
-После этого можем запускать Диспетчер служб `IIS`. На начальной странице находим вкладку сертификаты сервера и переходим в нее. 
+После этого можем запускать `Диспетчер служб IIS`. На начальной странице находим вкладку сертификаты сервера и переходим в нее. 
 
 В Действиях нажимаем `Импортировать…` и вводим путь к созданному нами сертификату с расширением `.pfx`, не забываем ввести пароль, который мы придумывали при преобразовании сертификата и ключа в `.pfx`:
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№1/Скрины/cert3.png)
 
 Если все сделано правильно, то в сертификатах сервера появится импортированный сертификат, данные будут взяты из предоставленной вами информации во время его создания в командной строке:
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№1/Скрины/cert4.png)
 
 Теперь привязываем сертификат к сайту. 
 
-Для этого переходим во вкладку `Default Web Site` в графе `Подключения`. В графе Изменения веб-сайта добавляем привязку веб-сайта `localhost`, выбираем для него тип `https`, сертификатом будет служить наш самоподписанный:
+Для этого переходим во вкладку `Default Web Site` в графе `Подключения`. В графе `Изменения веб-сайта` добавляем привязку веб-сайта `localhost`, выбираем для него тип `https`, сертификатом будет служить наш самоподписанный:
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№1/Скрины/cert5.png)
 
 ***Во время первой настройки я выбрала порт `443`, но это вызвало у меня ошибку, так как в конфигурационном файле nginx далее также будет использоваться порт `443`. Мне помогло просто заменить порт на `8443`. На работу сертификатов это не повлияло, но освободило порт, чтобы веб-сервер работал без ошибок.***
 
@@ -225,13 +225,13 @@ Nginx -s reload
 
 Например, введем `http://site1.local` и проверим одновременно работу переадресации на `https` и `alias`, т.е. файлик `index.html` должен выбраться именно из папки `site1`, указанной в конфигурационном файле:
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№1/Скрины/проверка%20работы.png)
 
 Видим, что переадресация сработала, а также был открыть верный `html-файл`, что означает правильную работу всей конфигурации блока `site1`. 
 
 Попробуем ввести в поисковую строку просто `site2.local`:
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№1/Скрины/проверка%20работы2.png)
 
 Видим, что и с `site2` все хорошо и все требования выполняются, что означает правильно выполненное задание;)
 
