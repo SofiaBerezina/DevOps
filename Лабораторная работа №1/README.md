@@ -98,7 +98,7 @@ openssl req -new -key server.key -out server.csr
 openssl req -new -x509 -days 365 -key server.key -out server.crt
 ```
 
-![App Screenshot](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№1/Скрины/ss2.png)
+![App Screenshot](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№1/Скрины/ssl2.png)
 
 Остается только преобразовать созданные сертификат и ключ в файл `.pfx` командой:
 ```bash
@@ -106,7 +106,7 @@ openssl pkcs12 -inkey server.key -in server.crt -export -out server.pfx
 ```
 И придумать пароль. Учтите, что на экране пароль отображаться **не будет**!
 
-![App Screenshot](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№1/Скрины/ss3.png)
+![App Screenshot](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№1/Скрины/ssl3.png)
 
 Ура! Сертификат создан, проверить его наличие вы можете в директории, в которой работали во время выполнения данного пункта.
 
