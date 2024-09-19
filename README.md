@@ -28,9 +28,9 @@
 
 Сначала установим все необходимое для работы над лабораторной работой. 
 
-[![Nginx](https://img.shields.io/badge/-Nginx-blue)](https://nginx.org/ru/download.html)ПО для создания веб-сервера, а также необходимое требование, без которого работу невозможно сделать
+[![Nginx](https://img.shields.io/badge/-Nginx-blue)](https://nginx.org/ru/download.html) ПО для создания веб-сервера, а также необходимое требование, без которого работу невозможно сделать
 
-[![OpenSSL](https://img.shields.io/badge/-OpenSSL-green)](https://slproweb.com/products/Win32OpenSSL.html)Полноценная криптографическая библиотека, ее мы будем использовать для создания сертификатов и ключей шифрования, чтобы в дальнейшем подключить веб-протокол HTTPS.
+[![OpenSSL](https://img.shields.io/badge/-OpenSSL-green)](https://slproweb.com/products/Win32OpenSSL.html) Полноценная криптографическая библиотека, ее мы будем использовать для создания сертификатов и ключей шифрования, чтобы в дальнейшем подключить веб-протокол HTTPS.
 
 Установка обеих программ довольно базовая и не требует дополнительных пояснений.
 
@@ -239,7 +239,6 @@ Nginx -s reload
 
 ## 🔗 Ресурсы
 [![portfolio](https://img.shields.io/badge/Applix-000?style=for-the-badge&logo=&logoColor=white)](https://applix.ru/articles/sozdanie-samopodpisannogo-ssl-sertifikata-na-windows-server/)
-
 [![linkedin](https://img.shields.io/badge/merionet-0A66C2?style=for-the-badge&logo=&logoColor=white)](https://wiki.merionet.ru/articles/kak-nastroit-redirekt-s-http-na-https-v-nginx#:~:text=%D0%94%D0%BB%D1%8F%20%D0%BF%D1%80%D0%B8%D0%BD%D1%83%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20HTTP%20%D0%BD%D0%B0,%2Flocal%2Fetc%2Fnginx%20.)
 
 
