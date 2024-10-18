@@ -1,0 +1,39 @@
+﻿version: '3.8'
+
+services:
+  app:
+    image: my-app:1.0.0
+    ports:
+      - "8080:80"
+    environment:
+      - DATABASE_URL=mongodb://db:27017/mydb
+    volumes:
+      - ./app:/usr/src/app
+    depends_on:
+      - db
+      - redis
+    networks:
+      - app-net
+
+  db:
+    image: mongo:5.0
+    volumes:
+      - db-data:/data/db
+    networks:
+      - db-net
+
+  redis:
+    image: redis:6.2
+    volumes:
+      - redis-data:/data
+    networks:
+      - redis-net
+
+volumes:
+  db-data:
+  redis-data:
+
+networks:
+  app-net:
+  db-net:
+  redis-net:

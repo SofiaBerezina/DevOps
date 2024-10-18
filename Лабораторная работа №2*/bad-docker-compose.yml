@@ -1,0 +1,21 @@
+﻿version: '3.8'
+
+services:
+  app:
+    image: my-app:latest
+    ports:
+      - "8080:80"
+    environment:
+      - DATABASE_URL=mongodb://db:27017/mydb
+    volumes:
+      - ./app:/usr/src/app
+  db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
