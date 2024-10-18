@@ -1,0 +1,14 @@
+﻿FROM node:latest 
+
+RUN apt-get update && apt-get install -y \
+    vim \
+    curl \
+    git
+
+USER root
+
+COPY . /app
+
+CMD ["sh", "-c", "service nginx start && node /app/app.js"]
+
+ENV DB_PASSWORD=mysecretpassword
