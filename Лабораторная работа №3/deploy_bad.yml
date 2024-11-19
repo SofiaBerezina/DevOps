@@ -1,0 +1,32 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y wget curl
+
+    - name: Build static site
+      run: |
+        mkdir -p public
+        echo "<html><body><h1>Bad Practices Deployed!</h1></body></html>" > public/index2.html
+
+    - name: Deploy using git
+      run: |
+        git config user.name "bot"
+        git config user.email "bot@example.com"
+        git add .
+        git commit -m "Deploy Bad Practices"
+        git push origin main
