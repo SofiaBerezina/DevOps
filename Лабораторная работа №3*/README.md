@@ -24,11 +24,11 @@
 ![ph2](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№3*/images/Снимок%20экрана%202024-11-29%20в%2019.36.52.png)
 
 И чтобы файл был доступен в любом месте можно добавить папку bin в переменную окружения PATH. Для этого открываем файл конфигурации терминала:
-```
+```bash
 nano ~/.zshrc
 ```
 И добавляем туда строку:
-```
+```bash
 export PATH="$HOME/bin:$PATH"
 ```
 Получится так:
@@ -36,7 +36,7 @@ export PATH="$HOME/bin:$PATH"
 ![ph3](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№3*/images/Снимок%20экрана%202024-11-29%20в%2019.58.47.png)
 
 После этого можно проверить правильность установки командой:
-```
+```bash
 vault –version
 ```
 Если все сделано правильно, то на экран будет выведена скачанная версия Vault:
@@ -44,7 +44,7 @@ vault –version
 ![ph4](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№3*/images/Снимок%20экрана%202024-11-29%20в%2019.59.28.png)
 
 Теперь можно запускать Vault. Делать это лучше в dev-режиме, так как он не требует сложной настройки. Для этого вводим в терминал команду:
-```
+```bash
 vault server -dev
 ```
 Появится сообщение о запуске dev-версии Vault. В нем будут две важные строки: ```Root Token``` и ```API URL```. Их нужно выписать, так как они пригодятся в дальнейшем:
@@ -56,16 +56,16 @@ vault server -dev
 ![ph6](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№3*/images/Снимок%20экрана%202024-11-29%20в%2020.04.18.png)
 
 Затем уже в новом терминале экспортируем адрес Vault и Root Token:
-```
+```bash
 export VAULT_ADDR='http://127.0.0.1:8200'
 export VAULT_TOKEN='<hvs.s5tyg60krte2smg04r8fxykz'
 ```
 Добавляем секрет:
-```
+```bash
 vault kv put secret/my-secret username="testuser" password="testpassword"
 ```
 И проверяем, что он успешно добавлен:
-```
+```bash
 vault kv get secret/my-secret
 ```
 ![ph7](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№3*/images/Снимок%20экрана%202024-11-29%20в%2020.08.19.png)
@@ -74,7 +74,7 @@ vault kv get secret/my-secret
 > ngrok — это сервис, который позволяет открыть доступ к внутренним ресурсам машины, на которой он запущен, из внешней сети, путем создания публичного адреса, все запросы на который будут переброшены на локальный адрес и заданный порт.
 
 Устанавливаем ngrok командой:
-```
+```bash
 brew install ngrok
 ```
 Если все прошло успешно, появится такое сообщение:
@@ -87,13 +87,13 @@ brew install ngrok
 
 
 Поэтому с VPN надо будет зайти на [сайт](https://dashboard.ngrok.com/signup) и зарегистрироваться. После этого на главной странице копируем уникальный токен и устанавливаем его в терминале:
-```
+```bash
 ngrok config add-authtoken
 ```
 ![ph10](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№3*/images/Снимок%20экрана%202024-11-29%20в%2021.58.09.png)
 
 Теперь можно сделать проброс порта 8200:
-```
+```bash
 ngrok http 8200
 ```
 Ngrok выдаст публичный URL (строка Forwarding), его нужно будет сохранить:
@@ -119,7 +119,7 @@ Ngrok выдаст публичный URL (строка Forwarding), его ну
 ![ph14](https://github.com/SofiaBerezina/DevOps/blob/main/Лабораторная%20работа%20№3*/images/Снимок%20экрана%202024-11-29%20в%2022.17.55.png)
 
 У нас получился такой CI/CD файл:
-```
+```yaml
 name: Vault CI/CD
 
 on:
