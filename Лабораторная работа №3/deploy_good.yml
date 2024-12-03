@@ -4,13 +4,11 @@ on:
   push:
     branches:
       - main
-
   workflow_dispatch:
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
+  build:
+    runs-on: ubuntu-22.04
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -18,10 +16,28 @@ jobs:
     - name: Build static site
       run: |
         mkdir -p public
-        echo "<html><body><h1>Good Practices Deployed!</h1></body></html>" > public/index.html
+        echo "<html><body><h1>Good Practices Deployed!✅</h1></body></html>" > public/index.html
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: site
+        path: public/
+
+  deploy:
+    runs-on: ubuntu-22.04
+    needs: build
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Download build artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: site
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
+        publish_dir: public
