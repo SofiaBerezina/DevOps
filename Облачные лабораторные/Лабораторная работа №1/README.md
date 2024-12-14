@@ -40,7 +40,7 @@
 7. ```Usage Type``` - Тип использования, специфичный для сервиса (например, %DataTransfer%, %AWS%Bytes). Помогает понять, что конкретно выполнялось и какие данные при этом использовались.
 8. ```lineItem/LineItemDescription``` - Дополнительный параметр, где "Tax" указывает на налоговые затраты, связанные с использованием соответствующих сервисов AWS.
 
-После разбора всех пунктов можно заполняем таблицу и выгружаем ее в [Google Drive](https://docs.google.com/spreadsheets/d/1qwpeIwPdWy-iw3jiOxmOktud9Gacp6Sw/edit?gid=1706643887#gid=1706643887):
+После разбора всех пунктов заполняем таблицу и выгружаем ее в [Google Drive](https://docs.google.com/spreadsheets/d/1qwpeIwPdWy-iw3jiOxmOktud9Gacp6Sw/edit?gid=1706643887#gid=1706643887):
 
 ![ph3](https://github.com/SofiaBerezina/DevOps/blob/main/%D0%9E%D0%B1%D0%BB%D0%B0%D1%87%D0%BD%D1%8B%D0%B5%20%D0%BB%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D1%8B%D0%B5/%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%E2%84%961/img/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202024-12-15%20%D0%B2%2001.11.04.png)
 
